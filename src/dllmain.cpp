@@ -7,10 +7,9 @@
 #include <llapi/ServerAPI.h>
 
 #include "version.h"
+#pragma comment(lib, "../include/libs/yaml-cpp.lib")
 
 void PluginInit();
-
-Logger logger(PLUGIN_NAME);
 
 void CheckProtocolVersion()
 {
@@ -20,9 +19,9 @@ void CheckProtocolVersion()
     auto current_protocol = ll::getServerProtocolVersion();
     if (TARGET_BDS_PROTOCOL_VERSION != current_protocol)
     {
-        logger.warn("Protocol version mismatched! Target version: {}. Current version: {}.",
-                    TARGET_BDS_PROTOCOL_VERSION, current_protocol);
-        logger.warn("This may result in crash. Please switch to the version matching the BDS version!");
+        //logger.warn("Protocol version mismatched! Target version: {}. Current version: {}.",
+                    //TARGET_BDS_PROTOCOL_VERSION, current_protocol);
+        //logger.warn("This may result in crash. Please switch to the version matching the BDS version!");
     }
 
 #endif // TARGET_BDS_PROTOCOL_VERSION
